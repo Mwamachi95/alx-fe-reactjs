@@ -1,11 +1,11 @@
 // App.jsx
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './component-temp/Home';
-import About from './component-temp/About';
-import Services from './component-temp/Services';
-import Contact from './component-temp/Contact';
-import Navbar from './component-temp/Navbar'; // Import the Navbar component
-import Footer from './component-temp/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Components/Home';
+import About from './Components/About';
+import Services from './Components/Services';
+import Contact from './Components/Contact';
+import Navbar from './Components/Navbar'; // Import the Navbar component
+import Footer from './Components/Footer';
 
 function App() {
   return (
