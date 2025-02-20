@@ -1,16 +1,16 @@
+// App.jsx
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './Components/Home';
-import About from './Components/About';
-import Services from './Components/Services';
-import Contact from './Components/Contact';
-import Footer from './Components/Footer';
-import Navbar from './Components/Navbar';
-
+import Home from './component-temp/Home';
+import About from './component-temp/About';
+import Services from './component-temp/Services';
+import Contact from './component-temp/Contact';
+import Navbar from './component-temp/Navbar'; // Import the Navbar component
+import Footer from './component-temp/Footer';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+    <Navbar /> {/* Include the Navbar here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -19,7 +19,8 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
+
