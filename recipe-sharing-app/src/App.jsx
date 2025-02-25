@@ -4,14 +4,16 @@ import { AddRecipeForm } from './components/AddRecipeForm';
 import { RecipeDetails } from './components/RecipeDetails';
 import { EditRecipeForm } from './components/EditRecipeForm';
 import { DeleteRecipeButton } from './components/DeleteRecipeButton';
+import { SearchBar } from './components/SearchBar';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecipeStore } from './components/recipeStore';
 
 function App() {
   return (
     <Router>
-      <div>
+      <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
         <h1>Recipe Sharing App</h1>
+        <SearchBar /> {/* Add SearchBar here */}
         <AddRecipeForm />
         <RecipeList />
         <Routes>
@@ -38,7 +40,7 @@ const RecipeDetailWrapper = () => {
     <div>
       <RecipeDetails recipeId={recipeId} />
       <EditRecipeForm recipe={recipe} onComplete={() => navigate('/')} />
-      <DeleteRecipeButton recipeId={parseInt(recipe.id)} />
+      <DeleteRecipeButton recipeId={parseInt(recipeId)} />
     </div>
   );
 };
