@@ -5,18 +5,37 @@ import { RecipeDetails } from './components/RecipeDetails';
 import { EditRecipeForm } from './components/EditRecipeForm';
 import { DeleteRecipeButton } from './components/DeleteRecipeButton';
 import { SearchBar } from './components/SearchBar';
+import { FavoritesList } from './components/FavoritesList';
+import { RecommendationsList } from './components/RecommendationsList';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecipeStore } from './components/recipeStore';
+import { useEffect } from 'react';
 
 function App() {
+  const generateRecommendations = useRecipeStore((state) => state.generateRecommendations);
+  const favorites = useRecipeStore((state) => state.favorites);
+
+  useEffect(() => {
+    generateRecommendations(); // Run once on mount or when favorites change meaningfully
+  }, [favorites.length, generateRecommendations]); // Use length to avoid reference changes
+
   return (
     <Router>
       <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
         <h1>Recipe Sharing App</h1>
-        <SearchBar /> {/* Add SearchBar here */}
+        <SearchBar />
         <AddRecipeForm />
-        <RecipeList />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <RecipeList />
+                <FavoritesList />
+                <RecommendationsList />
+              </>
+            }
+          />
           <Route 
             path="/recipe/:recipeId" 
             element={<RecipeDetailWrapper />}
