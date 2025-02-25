@@ -4,7 +4,8 @@ export const DeleteRecipeButton = ({ recipeId, onDelete }) => {
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
 
   const handleDelete = () => {
-    deleteRecipe(recipeId);
+    console.log('Delete button clicked, recipeId:', recipeId);
+    deleteRecipe(parseInt(recipeId));
     onDelete();
   };
 
