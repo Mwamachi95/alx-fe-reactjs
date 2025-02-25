@@ -1,6 +1,6 @@
 import { useRecipeStore } from './recipeStore';
 
-export const RecipeDetails = ({ recipeId }) => {
+const RecipeDetails = ({ recipeId }) => {
   const recipe = useRecipeStore((state) =>
     state.recipes.find((recipe) => recipe.id === parseInt(recipeId))
   );
@@ -14,3 +14,5 @@ export const RecipeDetails = ({ recipeId }) => {
     </div>
   );
 };
+
+export default RecipeDetails;

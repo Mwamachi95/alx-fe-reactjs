@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
 
-export const RecipeList = () => {
+const RecipeList = () => {
     const recipes = useRecipeStore(state => state.recipes);
 
     return (
@@ -17,4 +17,4 @@ export const RecipeList = () => {
     )
 }
 
-// export default RecipeList;
+export default RecipeList;
