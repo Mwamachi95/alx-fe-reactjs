@@ -38,7 +38,7 @@ const RecipeDetailWrapper = () => {
     <div>
       <RecipeDetails recipeId={recipeId} />
       <EditRecipeForm recipe={recipe} onComplete={() => navigate('/')} />
-      <DeleteRecipeButton recipeId={recipe.id} onDelete={() => navigate('/')} />
+      <DeleteRecipeButton recipeId={parseInt(recipe.id)} />
     </div>
   );
 };
