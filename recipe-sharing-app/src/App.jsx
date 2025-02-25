@@ -1,41 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import RecipeList from './components/RecipeList';
-import AddRecipeForm from './components/AddRecipeForm';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { RecipeList } from './components/RecipeList';
+import { AddRecipeForm } from './components/AddRecipeForm';
+import { RecipeDetails } from './components/RecipeDetails';
+import { EditRecipeForm } from './components/EditRecipeForm';
+import { DeleteRecipeButton } from './components/DeleteRecipeButton';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useRecipeStore } from './components/recipeStore';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <Router>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
         <h1>Recipe Sharing App</h1>
         <AddRecipeForm />
         <RecipeList />
+        <Routes>
+          <Route 
+            path="/recipe/:recipeId" 
+            element={<RecipeDetailWrapper />}
+          />
+        </Routes>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
+
+const RecipeDetailWrapper = () => {
+  const { recipeId } = useParams();
+  const recipe = useRecipeStore((state) =>
+    state.recipes.find((r) => r.id === parseInt(recipeId))
+  );
+  const navigate = useNavigate();
+
+  if (!recipe) return <div>Recipe not found</div>;
+
+  return (
+    <div>
+      <RecipeDetails recipeId={recipeId} />
+      <EditRecipeForm recipe={recipe} onComplete={() => navigate('/')} />
+      <DeleteRecipeButton recipeId={recipe.id} onDelete={() => navigate('/')} />
+    </div>
+  );
+};
 
 export default App;
