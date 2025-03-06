@@ -25,17 +25,17 @@ const RegistrationForm = () => {
         let valid = true;
         let errors = {};
 
-        if (!formData.username) {
+        if (!username) {
             valid = false;
             errors.username = 'Username is required';
         }
 
-        if (!formData.email) {
+        if (!email) {
             valid = false;
             errors.email = 'Email is required';
         }
 
-        if (!formData.password) {
+        if (!password) {
             valid = false;
             errors.password = 'Password is required';
         }
