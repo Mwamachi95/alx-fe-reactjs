@@ -43,6 +43,7 @@ const PostsComponent = () => {
     staleTime: 60000, // Consider data fresh for 1 minute
     cacheTime: 300000, // Keep data in cache for 5 minutes
     refetchOnWindowFocus: false, // Disable automatic refetching when window gains focus
+    keepPreviousData: true, // Keep showing the previous data while loading new data
   });
   
   // Use useMutation for post creation
