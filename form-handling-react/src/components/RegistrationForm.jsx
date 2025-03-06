@@ -29,12 +29,12 @@ const RegistrationForm = () => {
     let tempErrors = {};
     let isValid = true;
     
-    if (!formData.username.trim()) {
+    if (!username) {
       tempErrors.username = 'Username is required';
       isValid = false;
     }
     
-    if (!formData.email.trim()) {
+    if (!email) {
       tempErrors.email = 'Email is required';
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -42,10 +42,10 @@ const RegistrationForm = () => {
       isValid = false;
     }
     
-    if (!formData.password.trim()) {
+    if (!password) {
       tempErrors.password = 'Password is required';
       isValid = false;
-    } else if (formData.password.length < 6) {
+    } else if (password.length < 6) {
       tempErrors.password = 'Password must be at least 6 characters';
       isValid = false;
     }
