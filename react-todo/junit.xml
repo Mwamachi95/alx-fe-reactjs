@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="9" failures="0" errors="0" time="5.785">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:17:13" time="2.266" tests="1">
-    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.072">
+<testsuites name="jest tests" tests="12" failures="0" errors="0" time="8.602">
+  <testsuite name="AddTodoForm Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:28:33" time="3.477" tests="3">
+    <testcase classname="AddTodoForm Component renders the form correctly" name="AddTodoForm Component renders the form correctly" time="0.083">
+    </testcase>
+    <testcase classname="AddTodoForm Component updates input value when typed into" name="AddTodoForm Component updates input value when typed into" time="0.021">
+    </testcase>
+    <testcase classname="AddTodoForm Component calls onAddTodo and clears input when form is submitted" name="AddTodoForm Component calls onAddTodo and clears input when form is submitted" time="0.017">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:17:13" time="2.458" tests="4">
-    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.134">
-    </testcase>
-    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.042">
-    </testcase>
-    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.022">
-    </testcase>
-    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.062">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:28:33" time="3.488" tests="1">
+    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.104">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:17:13" time="2.454" tests="4">
-    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.123">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:28:33" time="3.695" tests="4">
+    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.184">
     </testcase>
-    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.053">
+    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.057">
     </testcase>
-    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.025">
+    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.027">
     </testcase>
-    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.032">
+    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.063">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:28:33" time="3.711" tests="4">
+    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.196">
+    </testcase>
+    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.061">
+    </testcase>
+    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.024">
+    </testcase>
+    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.057">
     </testcase>
   </testsuite>
 </testsuites>
