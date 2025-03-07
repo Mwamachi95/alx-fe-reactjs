@@ -1,134 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="1" errors="0" time="5.046">
-  <testsuite name="AddTodoForm Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:59:55" time="1.833" tests="3">
-    <testcase classname="AddTodoForm Component renders the form correctly" name="AddTodoForm Component renders the form correctly" time="0.047">
+<testsuites name="jest tests" tests="12" failures="0" errors="0" time="5.335">
+  <testsuite name="TodoItem Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T11:06:42" time="1.657" tests="4">
+    <testcase classname="TodoItem Component renders the todo item correctly" name="TodoItem Component renders the todo item correctly" time="0.041">
     </testcase>
-    <testcase classname="AddTodoForm Component updates input value when typed into" name="AddTodoForm Component updates input value when typed into" time="0.018">
-    </testcase>
-    <testcase classname="AddTodoForm Component calls onAddTodo and clears input when form is submitted" name="AddTodoForm Component calls onAddTodo and clears input when form is submitted" time="0.009">
-    </testcase>
-  </testsuite>
-  <testsuite name="TodoItem Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:59:55" time="1.858" tests="4">
-    <testcase classname="TodoItem Component renders the todo item correctly" name="TodoItem Component renders the todo item correctly" time="0.04">
-    </testcase>
-    <testcase classname="TodoItem Component calls onToggle when the todo text is clicked" name="TodoItem Component calls onToggle when the todo text is clicked" time="0.014">
+    <testcase classname="TodoItem Component calls onToggle when the todo text is clicked" name="TodoItem Component calls onToggle when the todo text is clicked" time="0.01">
     </testcase>
     <testcase classname="TodoItem Component calls onDelete when the delete button is clicked" name="TodoItem Component calls onDelete when the delete button is clicked" time="0.006">
     </testcase>
-    <testcase classname="TodoItem Component applies completed style when todo is completed" name="TodoItem Component applies completed style when todo is completed" time="0.031">
+    <testcase classname="TodoItem Component applies completed style when todo is completed" name="TodoItem Component applies completed style when todo is completed" time="0.029">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:59:55" time="1.821" tests="1">
+  <testsuite name="AddTodoForm Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T11:06:42" time="1.686" tests="3">
+    <testcase classname="AddTodoForm Component renders the form correctly" name="AddTodoForm Component renders the form correctly" time="0.043">
+    </testcase>
+    <testcase classname="AddTodoForm Component updates input value when typed into" name="AddTodoForm Component updates input value when typed into" time="0.019">
+    </testcase>
+    <testcase classname="AddTodoForm Component calls onAddTodo and clears input when form is submitted" name="AddTodoForm Component calls onAddTodo and clears input when form is submitted" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T11:06:42" time="1.713" tests="1">
     <testcase classname=" renders learn react link" name=" renders learn react link" time="0.065">
     </testcase>
   </testsuite>
-  <testsuite name="TodoList Component" errors="0" failures="1" skipped="0" timestamp="2025-03-07T10:59:55" time="2.58" tests="4">
-    <testcase classname="TodoList Component renders the TodoList component with initial todos" name="TodoList Component renders the TodoList component with initial todos" time="0.042">
+  <testsuite name="TodoList Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T11:06:42" time="2.371" tests="4">
+    <testcase classname="TodoList Component renders the TodoList component with initial todos" name="TodoList Component renders the TodoList component with initial todos" time="0.038">
     </testcase>
-    <testcase classname="TodoList Component adds a new todo when the form is submitted" name="TodoList Component adds a new todo when the form is submitted" time="0.008">
-      <failure>TestingLibraryElementError: Unable to find an element with the placeholder text of: Add todo
-
-Ignored nodes: comments, script, style
-&lt;body&gt;
-  &lt;div&gt;
-    &lt;div
-      class=&quot;todo-list&quot;
-    &gt;
-      &lt;h1&gt;
-        Todo List
-      &lt;/h1&gt;
-      &lt;form
-        data-testid=&quot;add-todo-form&quot;
-      &gt;
-        &lt;input
-          data-testid=&quot;todo-input&quot;
-          placeholder=&quot;Add a new todo&quot;
-          type=&quot;text&quot;
-          value=&quot;&quot;
-        /&gt;
-        &lt;button
-          data-testid=&quot;add-button&quot;
-          type=&quot;submit&quot;
-        &gt;
-          Add Todo
-        &lt;/button&gt;
-      &lt;/form&gt;
-      &lt;ul&gt;
-        &lt;li
-          class=&quot;todo-item &quot;
-          data-testid=&quot;todo-item-1&quot;
-        &gt;
-          &lt;span
-            data-testid=&quot;todo-text-1&quot;
-            style=&quot;text-decoration: none;&quot;
-          &gt;
-            Learn React
-          &lt;/span&gt;
-          &lt;button
-            data-testid=&quot;delete-button-1&quot;
-          &gt;
-            Delete
-          &lt;/button&gt;
-        &lt;/li&gt;
-        &lt;li
-          class=&quot;todo-item &quot;
-          data-testid=&quot;todo-item-2&quot;
-        &gt;
-          &lt;span
-            data-testid=&quot;todo-text-2&quot;
-            style=&quot;text-decoration: none;&quot;
-          &gt;
-            Build a Todo App
-          &lt;/span&gt;
-          &lt;button
-            data-testid=&quot;delete-button-2&quot;
-          &gt;
-            Delete
-          &lt;/button&gt;
-        &lt;/li&gt;
-        &lt;li
-          class=&quot;todo-item &quot;
-          data-testid=&quot;todo-item-3&quot;
-        &gt;
-          &lt;span
-            data-testid=&quot;todo-text-3&quot;
-            style=&quot;text-decoration: none;&quot;
-          &gt;
-            Write Tests
-          &lt;/span&gt;
-          &lt;button
-            data-testid=&quot;delete-button-3&quot;
-          &gt;
-            Delete
-          &lt;/button&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-    at Object.getElementError (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\@testing-library\dom\dist\config.js:37:19)
-    at C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\@testing-library\dom\dist\query-helpers.js:76:38
-    at C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\@testing-library\dom\dist\query-helpers.js:52:17
-    at getByPlaceholderText (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\@testing-library\dom\dist\query-helpers.js:95:19)
-    at Object.&lt;anonymous&gt; (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\src\__tests__\TodoList.test.js:24:30)
-    at Promise.then.completed (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\utils.js:391:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\utils.js:316:10)
-    at _callCircusTest (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\run.js:218:40)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at _runTest (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\run.js:155:3)
-    at _runTestsForDescribeBlock (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\run.js:66:9)
-    at _runTestsForDescribeBlock (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\run.js:60:9)
-    at run (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\run.js:25:3)
-    at runAndTransformResultsToJestFormat (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:170:21)
-    at jestAdapter (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:82:19)
-    at runTestInternal (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-runner\build\runTest.js:389:16)
-    at runTest (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-runner\build\runTest.js:475:34)
-    at Object.worker (C:\Users\heinz\OneDrive\Documents\Mziwazi\ALX\FE\React\alx-fe-reactjs\react-todo\node_modules\jest-runner\build\testWorker.js:133:12)</failure>
+    <testcase classname="TodoList Component adds a new todo when the form is submitted" name="TodoList Component adds a new todo when the form is submitted" time="0.015">
     </testcase>
-    <testcase classname="TodoList Component toggles a todo when clicked" name="TodoList Component toggles a todo when clicked" time="0.013">
+    <testcase classname="TodoList Component toggles a todo when clicked" name="TodoList Component toggles a todo when clicked" time="0.009">
     </testcase>
-    <testcase classname="TodoList Component deletes a todo when the delete button is clicked" name="TodoList Component deletes a todo when the delete button is clicked" time="0.006">
+    <testcase classname="TodoList Component deletes a todo when the delete button is clicked" name="TodoList Component deletes a todo when the delete button is clicked" time="0.008">
     </testcase>
   </testsuite>
 </testsuites>
