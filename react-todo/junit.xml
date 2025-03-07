@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" errors="0" time="5.567">
-  <testsuite name="TodoItem Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:22:44" time="3.015" tests="4">
-    <testcase classname="TodoItem Component renders the todo item correctly" name="TodoItem Component renders the todo item correctly" time="0.056">
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="4.739">
+  <testsuite name="AddTodoForm Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:24:59" time="1.829" tests="3">
+    <testcase classname="AddTodoForm Component renders the form correctly" name="AddTodoForm Component renders the form correctly" time="0.042">
     </testcase>
-    <testcase classname="TodoItem Component calls onToggle when the todo text is clicked" name="TodoItem Component calls onToggle when the todo text is clicked" time="0.017">
-    </testcase>
-    <testcase classname="TodoItem Component calls onDelete when the delete button is clicked" name="TodoItem Component calls onDelete when the delete button is clicked" time="0.009">
-    </testcase>
-    <testcase classname="TodoItem Component applies completed style when todo is completed" name="TodoItem Component applies completed style when todo is completed" time="0.041">
-    </testcase>
-  </testsuite>
-  <testsuite name="AddTodoForm Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:22:44" time="2.952" tests="3">
-    <testcase classname="AddTodoForm Component renders the form correctly" name="AddTodoForm Component renders the form correctly" time="0.052">
-    </testcase>
-    <testcase classname="AddTodoForm Component updates input value when typed into" name="AddTodoForm Component updates input value when typed into" time="0.015">
+    <testcase classname="AddTodoForm Component updates input value when typed into" name="AddTodoForm Component updates input value when typed into" time="0.012">
     </testcase>
     <testcase classname="AddTodoForm Component calls onAddTodo and clears input when form is submitted" name="AddTodoForm Component calls onAddTodo and clears input when form is submitted" time="0.008">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:22:44" time="2.993" tests="1">
-    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.061">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:24:59" time="1.853" tests="1">
+    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.065">
     </testcase>
   </testsuite>
-  <testsuite name="TodoList Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:22:44" time="3.06" tests="4">
-    <testcase classname="TodoList Component renders the TodoList component with initial todos" name="TodoList Component renders the TodoList component with initial todos" time="0.058">
+  <testsuite name="TodoItem Component" errors="0" failures="0" skipped="0" timestamp="2025-03-07T10:24:59" time="1.853" tests="4">
+    <testcase classname="TodoItem Component renders the todo item correctly" name="TodoItem Component renders the todo item correctly" time="0.058">
     </testcase>
-    <testcase classname="TodoList Component adds a new todo when the form is submitted" name="TodoList Component adds a new todo when the form is submitted" time="0.018">
+    <testcase classname="TodoItem Component calls onToggle when the todo text is clicked" name="TodoItem Component calls onToggle when the todo text is clicked" time="0.011">
     </testcase>
-    <testcase classname="TodoList Component toggles a todo when clicked" name="TodoList Component toggles a todo when clicked" time="0.04">
+    <testcase classname="TodoItem Component calls onDelete when the delete button is clicked" name="TodoItem Component calls onDelete when the delete button is clicked" time="0.007">
     </testcase>
-    <testcase classname="TodoList Component deletes a todo when the delete button is clicked" name="TodoList Component deletes a todo when the delete button is clicked" time="0.011">
+    <testcase classname="TodoItem Component applies completed style when todo is completed" name="TodoItem Component applies completed style when todo is completed" time="0.029">
     </testcase>
   </testsuite>
 </testsuites>
