@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,12 +36,12 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ]
+    }
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "identity-obj-proxy": "^3.0.0"
   }
 }
