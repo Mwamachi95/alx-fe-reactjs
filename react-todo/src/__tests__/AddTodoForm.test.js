@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import AddTodoForm from '../AddTodoForm';
+import AddTodoForm from '../components/AddTodoForm';
 
 describe('AddTodoForm Component', () => {
   test('renders the form correctly', () => {
