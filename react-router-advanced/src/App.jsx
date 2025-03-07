@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 // Page Components
@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   // Simple authentication state
@@ -17,14 +18,6 @@ function App() {
   // Login and Logout functions
   const login = () => setIsAuthenticated(true);
   const logout = () => setIsAuthenticated(false);
-
-  // Protected Route component
-  const ProtectedRoute = ({ children }) => {
-    if (!isAuthenticated) {
-      return <Navigate to="/login" replace />;
-    }
-    return children;
-  };
 
   return (
     <BrowserRouter>
@@ -60,7 +53,7 @@ function App() {
           <Route 
             path="/profile/*" 
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Profile />
               </ProtectedRoute>
             } 
