@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
@@ -10,63 +9,74 @@ import BlogPost from './components/BlogPost';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider, useAuth } from './AuthContext';
+
+// Navigation component with auth-aware links
+const Navigation = () => {
+  const { isAuthenticated, logout } = useAuth();
+  
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/blog/1">Blog Post 1</Link></li>
+        <li><Link to="/blog/2">Blog Post 2</Link></li>
+        {isAuthenticated ? (
+          <li><button onClick={logout}>Logout</button></li>
+        ) : (
+          <li><Link to="/login">Login</Link></li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+// Auth status component
+const AuthStatus = () => {
+  const { isAuthenticated } = useAuth();
+  
+  return (
+    <div className="auth-status">
+      Status: {isAuthenticated ? 'Logged In' : 'Logged Out'}
+    </div>
+  );
+};
 
 function App() {
-  // Simple authentication state
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // Login and Logout functions
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
-
   return (
-    <BrowserRouter>
-      <div className="app">
-        {/* Navigation */}
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/blog/1">Blog Post 1</Link></li>
-            <li><Link to="/blog/2">Blog Post 2</Link></li>
-            {isAuthenticated ? (
-              <li><button onClick={logout}>Logout</button></li>
-            ) : (
-              <li><Link to="/login">Login</Link></li>
-            )}
-          </ul>
-        </nav>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="app">
+          <Navigation />
+          <AuthStatus />
 
-        {/* Auth status display */}
-        <div className="auth-status">
-          Status: {isAuthenticated ? 'Logged In' : 'Logged Out'}
+          {/* Routes */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            
+            {/* Protected route for Profile and nested routes */}
+            <Route 
+              path="/profile/*" 
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Dynamic route with parameter */}
+            <Route path="/blog/:id" element={<BlogPost />} />
+            
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
-
-        {/* Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login onLogin={login} isAuthenticated={isAuthenticated} />} />
-          
-          {/* Protected route for Profile and nested routes */}
-          <Route 
-            path="/profile/*" 
-            element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <Profile />
-              </ProtectedRoute>
-            } 
-          />
-          
-          {/* Dynamic route with parameter */}
-          <Route path="/blog/:id" element={<BlogPost />} />
-          
-          {/* Catch-all route for 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

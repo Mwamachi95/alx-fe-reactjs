@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
-const Login = ({ onLogin, isAuthenticated }) => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { isAuthenticated, login } = useAuth();
 
   // Redirect if already authenticated
   if (isAuthenticated) {
@@ -15,7 +17,7 @@ const Login = ({ onLogin, isAuthenticated }) => {
     e.preventDefault();
     // Simple validation
     if (username && password) {
-      onLogin();
+      login();
       navigate('/profile', { replace: true });
     }
   };
