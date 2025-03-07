@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --ci --reporters=jest-junit",
+    "test": "jest --ci --testResultsProcessor=jest-junit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
