@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" errors="0" time="7.253">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:14:50" time="2.553" tests="1">
-    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.069">
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="5.079">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:16:04" time="2.288" tests="4">
+    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.112">
+    </testcase>
+    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.053">
+    </testcase>
+    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.026">
+    </testcase>
+    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.041">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:14:50" time="3.257" tests="4">
-    <testcase classname=" renders the TodoList component with initial todos" name=" renders the TodoList component with initial todos" time="0.064">
-    </testcase>
-    <testcase classname=" adds a new todo when the form is submitted" name=" adds a new todo when the form is submitted" time="0.035">
-    </testcase>
-    <testcase classname=" toggles a todo when clicked" name=" toggles a todo when clicked" time="0.014">
-    </testcase>
-    <testcase classname=" deletes a todo when the delete button is clicked" name=" deletes a todo when the delete button is clicked" time="0.024">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2025-03-07T12:16:04" time="2.15" tests="1">
+    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.046">
     </testcase>
   </testsuite>
 </testsuites>
