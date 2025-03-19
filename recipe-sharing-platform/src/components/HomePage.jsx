@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import recipeData from '../data.json';
 
@@ -31,9 +32,11 @@ const HomePage = () => {
       <header className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-gray-900">Recipe Sharing Platform</h1>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors duration-300">
-            Add New Recipe
-          </button>
+          <Link to="/new-recipe">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors duration-300">
+              Add New Recipe
+            </button>
+          </Link>
         </div>
       </header>
       
