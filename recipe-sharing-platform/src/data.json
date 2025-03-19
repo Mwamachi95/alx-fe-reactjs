@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/300x200",
+    "prepTime": "15 min",
+    "cookTime": "15 min",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://unsplash.com/photos/green-vegetable-on-white-ceramic-plate-PqsImnjuElM",
+    "prepTime": "20 min",
+    "cookTime": "30 min",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 3,
+    "title": "Vegetable Stir Fry",
+    "summary": "A quick and healthy mix of fresh vegetables stir-fried with a savory sauce.",
+    "image": "https://unsplash.com/photos/person-mixing-vegetable-in-wok-grSEQB9IeoU",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 4,
+    "title": "Classic Beef Lasagna",
+    "summary": "Layers of pasta, rich meat sauce, and creamy béchamel topped with cheese.",
+    "image": "https://via.placeholder.com/300x200",
+    "prepTime": "30 min",
+    "cookTime": "45 min",
+    "difficulty": "Hard"
+  },
+  {
+    "id": 5,
+    "title": "Avocado Toast",
+    "summary": "Simple yet delicious toast topped with mashed avocado, lemon juice, and various toppings.",
+    "image": "https://via.placeholder.com/300x200",
+    "prepTime": "5 min",
+    "cookTime": "5 min",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 6,
+    "title": "Chocolate Chip Cookies",
+    "summary": "Classic homemade cookies with a perfect balance of chewy centers and crispy edges.",
+    "image": "https://via.placeholder.com/300x200",
+    "prepTime": "15 min",
+    "cookTime": "10 min",
+    "difficulty": "Easy"
+  }
+]
