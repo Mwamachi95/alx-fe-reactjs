@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RecipeCard = ({ recipe }) => {
   // Function to determine the badge color based on difficulty
@@ -36,9 +37,11 @@ const RecipeCard = ({ recipe }) => {
           </span>
         </div>
       </div>
-      <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 w-full transition-colors duration-300">
-        View Recipe
-      </button>
+      <Link to={`/recipe/${recipe.id}`} className="block">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 w-full transition-colors duration-300">
+          View Recipe
+        </button>
+      </Link>
     </div>
   );
 };
