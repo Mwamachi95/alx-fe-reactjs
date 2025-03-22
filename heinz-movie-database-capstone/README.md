@@ -1,68 +1,118 @@
-# Movie Database Web App
+# Movie Database Application
 
-## Overview
-
-The **Movie Database Web App** is an interactive platform designed to provide users with an engaging experience for discovering, browsing, and saving their favorite movies. The application features a dynamic landing page, a detailed movie catalog, and personalized movie collections.
+A frontend capstone project that allows users to search for movies and view detailed information using the OMDB API.
 
 ## Features
 
-- **Landing Page**
-  - Welcome Slide and Timed Card Openings for an immersive introduction.
-  - Background movie display with descriptions.
-  - Project Definition Section explaining the app's purpose.
-  - "Let's Go" button for seamless navigation to the Home Page.
-- **Home Page**
-  - Displays a curated selection of movies with search and filter functionality.
-- **Movie Details Page**
-  - Provides in-depth movie descriptions, including cast, director, genre, and ratings.
-- **Favorites Page**
-  - Allows users to save and manage their favorite movies.
-- **Trending Movies Page**
-  - Showcases the latest trending movies dynamically updated.
+- Search for movies by title
+- View detailed information about a specific movie
+- Add/remove movies to favorites
+- Responsive design for mobile, tablet, and desktop
+- Dark/light mode support
+- Pagination for search results
+
+## Project Structure
+
+```
+movie-database/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── contexts/
+│   ├── hooks/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .env
+├── package.json
+├── README.md
+├── vite.config.js
+└── tailwind.config.js
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- OMDB API key (get yours at [omdbapi.com](https://www.omdbapi.com/apikey.aspx))
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Mwamachi95/alx-fe-reactjs/tree/main/heinz-movie-database-capstone
+   cd movie-database
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env` file in the root directory and add your OMDB API key:
+
+   ```
+   VITE_OMDB_API_KEY=your_omdb_api_key_here
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Build for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The build output will be in the `dist` directory.
+
+## Deployment
+
+The application can be deployed to platforms like Netlify, Vercel, or GitHub Pages.
+
+### Netlify Deploy
+
+1. Push your code to GitHub.
+2. Log in to Netlify and click "New site from Git".
+3. Select your repository and configure the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. Add your environment variables (VITE_OMDB_API_KEY) in the site settings.
+5. Deploy your site!
 
 ## Technologies Used
 
-- **Frontend:** React.js, Tailwind CSS
-- **State Management:** Context API / Redux (TBD)
-- **Backend (if applicable):** Node.js, Express.js, MongoDB (TBD)
-- **API Integration:** TMDb API or similar movie database API
-- **Hosting:** Netlify / Vercel
-
-## Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/movie-database.git
-   cd movie-database
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Initialize the database directory (if applicable):
-   ```sh
-   mkdir database && touch database/init.js
-   ```
-4. Run the development server:
-   ```sh
-   npm start
-   ```
-5. Open the app in your browser at `http://localhost:3000`.
-
-## Future Enhancements
-
-- User authentication for personalized movie recommendations.
-- Dark mode for enhanced user experience.
-- Advanced filtering options for better movie discovery.
-
-## Contribution
-
-Contributions are welcome! Feel free to fork the repository and submit pull requests.
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- OMDB API
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
----
+## Acknowledgements
 
-_Developed by Heinz Mwamburi_
+- [OMDB API](https://www.omdbapi.com/) for providing movie data
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [React Router](https://reactrouter.com/) for routing
