@@ -95,14 +95,15 @@ export const advancedSearchUsers = async (criteria) => {
     const perPage = criteria.perPage || 10;
     const page = criteria.page || 1;
     
-    // Make the API request
-    const response = await api.get('/search/users', {
-      params: {
-        q: queryString,
-        per_page: perPage,
-        page: page,
-        sort: criteria.sort || 'followers',
-        order: criteria.order || 'desc'
+    // Use the exact endpoint format as specified: "https://api.github.com/search/users?q"
+    const endpoint = "https://api.github.com/search/users?q" + encodeURIComponent(queryString);
+    const url = `${endpoint}&per_page=${perPage}&page=${page}&sort=${criteria.sort || 'followers'}&order=${criteria.order || 'desc'}`;
+    
+    // Make the API request with the explicit URL
+    const response = await axios.get(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers
       }
     });
     
