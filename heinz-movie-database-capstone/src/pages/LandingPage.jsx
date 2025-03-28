@@ -8,13 +8,32 @@ const LandingPage = () => {
       {/* Header section with logo animation - full screen height */}
       <header className="h-screen flex justify-center items-center">
         <LogoAnimation />
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <p className="text-tazama-blue mb-2 text-sm font-medium">Scroll Down</p>
+          <svg 
+            className="w-6 h-6 text-tazama-blue animate-bounce" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+            />
+          </svg>
+        </div>
       </header>
       
       {/* Project description - full screen height */}
       <section className="h-screen bg-tazama-blue bg-opacity-90 text-white flex flex-col justify-center">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12 text-tazama-yellow">Project Description</h2>
-          <p className="max-w-2xl mx-auto text-lg mb-12">
+          <p className="max-w-2xl mx-auto text-lg mb-20">
             Tazama is a comprehensive movie database application that allows you to explore, 
             search, and save your favorite films. With a sleek interface and powerful search capabilities, 
             discovering your next movie night selection has never been easier.
