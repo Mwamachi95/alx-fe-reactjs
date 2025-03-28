@@ -4,6 +4,7 @@ import Layout from './components/layout/Layout';
 import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import FavoritesPage from './pages/FavoritesPage';
+import SearchResultsPage from './pages/SearchResultsPage';
 import TestAPIPage from './pages/TestAPIPage';
 import './styles/animations.css';
 
@@ -22,6 +23,12 @@ function App() {
         <Route path="/favorites" element={
           <Layout sideNavColor="yellow">
             <FavoritesPage />
+          </Layout>
+        } />
+        
+        <Route path="/search" element={
+          <Layout sideNavColor="yellow">
+            <SearchResultsPage />
           </Layout>
         } />
         

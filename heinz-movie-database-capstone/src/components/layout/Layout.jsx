@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SideNavigation from './SideNavigation';
+import TopNavigation from './TopNavigation';
 
-const Layout = ({ children, sideNavColor = 'yellow' }) => {
+const Layout = ({ children, sideNavColor = 'yellow', onSearch }) => {
   const location = useLocation();
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   
@@ -29,11 +30,15 @@ const Layout = ({ children, sideNavColor = 'yellow' }) => {
       
       {/* Main Content - margin transitions with sidebar */}
       <div 
-        className={`flex-1 transition-all duration-300 ease-in-out ${
+        className={`flex-1 flex flex-col transition-all duration-300 ease-in-out ${
           sidebarExpanded ? 'ml-56' : 'ml-16'
         }`}
       >
-        <main className="min-h-screen">
+        {/* Top Navigation */}
+        <TopNavigation onSearch={onSearch} />
+        
+        {/* Page Content */}
+        <main className="flex-1 p-6">
           {children}
         </main>
       </div>
