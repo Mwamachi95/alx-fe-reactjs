@@ -44,6 +44,7 @@ const LandingPage = () => {
           >
             Let's Go
           </Link>
+        
         </div>
       </section>
       
