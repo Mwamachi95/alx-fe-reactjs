@@ -97,3 +97,11 @@
     background-position: 0% 50%;
   }
 }
+
+/* Add this to your src/styles/animations.css file */
+
+/* Sidebar text visibility */
+nav:hover .nav-text {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease;
+}
