@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getMovieDetails } from '../services/api';
+import BackButton from '../components/common/BackButton';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -84,6 +85,10 @@ const MovieDetailsPage = () => {
   
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      {/* Back Button */}
+      <div className="max-w-6xl mx-auto px-4 pt-4">
+          <BackButton />
+      </div>
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-tazama-blue to-black text-white py-12">
         <div className="absolute inset-0 opacity-20" style={{ 
