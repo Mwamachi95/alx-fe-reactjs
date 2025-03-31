@@ -1,8 +1,8 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Theme color variables */
 /* Critical theme variables with !important */
 :root {
   --app-bg: #ffffff;
@@ -36,6 +36,9 @@ html,
 div {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
+
+/* Rest of your existing CSS */
+/* ... */
 
 /* Smooth transitions for theme switching */
 @layer base {
