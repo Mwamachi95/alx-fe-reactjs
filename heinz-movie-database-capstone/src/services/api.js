@@ -1,15 +1,32 @@
 // src/services/api.js
-import { API_KEY, BASE_URL } from '../utils/constants';
+// Base configuration
+const API_KEY = '8c90cfe2'; // Your OMDB API key
+const BASE_URL = 'https://www.omdbapi.com/';
 
 /**
- * Search for movies based on query
+ * Search for movies based on query and filters
  * @param {string} query - Search term
  * @param {number} page - Page number for pagination
+ * @param {object} filters - Filter options
  * @returns {Promise} - Promise with search results
  */
-export const searchMovies = async (query, page = 1) => {
+export const searchMovies = async (query, page = 1, filters = {}) => {
   try {
-    const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${query}&page=${page}&type=movie`);
+    let url = `${BASE_URL}?apikey=${API_KEY}&s=${query}&page=${page}`;
+    
+    // Add type filter if specified
+    if (filters.type) {
+      url += `&type=${filters.type}`;
+    }
+    
+    // Add year filter if specified
+    if (filters.year) {
+      // OMDB API only supports exact year in the query
+      // We'll handle before/after ranges in the client-side filtering
+      url += `&y=${filters.year}`;
+    }
+    
+    const response = await fetch(url);
     
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -21,8 +38,24 @@ export const searchMovies = async (query, page = 1) => {
       throw new Error(data.Error || 'No movies found');
     }
     
+    // Client-side filtering for year ranges if needed
+    let movies = data.Search;
+    if (filters.year && filters.yearRange !== 'exact') {
+      movies = movies.filter(movie => {
+        const movieYear = parseInt(movie.Year, 10);
+        const filterYear = parseInt(filters.year, 10);
+        
+        if (filters.yearRange === 'before') {
+          return movieYear < filterYear;
+        } else if (filters.yearRange === 'after') {
+          return movieYear > filterYear;
+        }
+        return true;
+      });
+    }
+    
     return {
-      movies: data.Search,
+      movies,
       totalResults: parseInt(data.totalResults, 10),
       currentPage: page
     };
@@ -57,15 +90,24 @@ export const getMovieDetails = async (id) => {
 };
 
 /**
- * Get popular movies (this is a workaround since OMDB doesn't have a popular movies endpoint)
- * We'll use predefined popular movie titles
+ * Get popular movies (workaround since OMDB doesn't have a dedicated popular movies endpoint)
+ * @returns {Promise} - Promise with popular movies
  */
 export const getPopularMovies = async () => {
   try {
-    const popularTitles = ['inception', 'interstellar', 'godfather', 'dark knight', 'pulp fiction'];
+    // Array of popular movie titles to search for
+    const popularTitles = [
+      'inception', 'interstellar', 'godfather', 'pulp fiction', 'dark knight',
+      'shawshank redemption', 'fight club', 'matrix', 'lord of the rings', 'avengers'
+    ];
     
+    // Pick a random set of titles to keep it interesting
+    const shuffled = [...popularTitles].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 5);
+    
+    // Fetch movies in parallel
     const results = await Promise.all(
-      popularTitles.map(title => searchMovies(title, 1))
+      selected.map(title => searchMovies(title, 1))
     );
     
     // Get the first movie from each search result
@@ -75,6 +117,14 @@ export const getPopularMovies = async () => {
     
     return popularMovies;
   } catch (error) {
-    throw error;
+    console.error('Error fetching popular movies:', error);
+    return [];
   }
+};
+
+// Export all functions
+export default {
+  searchMovies,
+  getMovieDetails,
+  getPopularMovies
 };
