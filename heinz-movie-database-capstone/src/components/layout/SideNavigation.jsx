@@ -1,22 +1,26 @@
 // src/components/layout/SideNavigation.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { THEMES } from '../../utils/constants';
+import { useTheme, THEMES } from '../../contexts/ThemeContext';
 
 const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
   const navigate = useNavigate();
   const navRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const { theme } = useTheme();
+  const isDark = theme === THEMES.DARK;
   
-  // Determine background color based on prop
+  // Get background color
   const bgColor = backgroundColor === 'blue' 
-    ? 'bg-tazama-blue' 
-    : 'bg-tazama-yellow';
+    ? isDark ? 'bg-gray-800' : 'bg-tazama-blue' 
+    : isDark ? 'bg-gray-800' : 'bg-tazama-yellow';
   
-  // Determine text color based on background
-  const textColor = backgroundColor === 'blue' 
-    ? 'text-tazama-yellow' 
-    : 'text-tazama-blue';
+  // Get text color
+  const textColor = isDark
+    ? 'text-white'
+    : backgroundColor === 'blue' 
+      ? 'text-tazama-yellow' 
+      : 'text-tazama-blue';
   
   const handleBack = () => {
     navigate(-1);
@@ -52,7 +56,7 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
   return (
     <nav 
       ref={navRef}
-      className={`fixed left-0 top-0 h-screen w-16 hover:w-56 ${bgColor} transition-width duration-300 ease-in-out overflow-hidden z-40 flex flex-col`}
+      className={`fixed left-0 top-0 h-screen w-16 hover:w-56 ${bgColor} transition-all duration-300 ease-in-out overflow-hidden z-40 flex flex-col`}
     >
       {/* Top section - Profile */}
       <div className="pt-4 px-4">
@@ -79,7 +83,7 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
         </div>
       </div>
       
-      {/* Middle section - Navigation links */}
+      {/* Navigation items */}
       <div className="flex-grow flex flex-col justify-center px-4">
         <div className="space-y-0">
           <NavLink 
@@ -89,19 +93,8 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
             }
           >
             <div className={`w-10 h-10 rounded-md ${textColor} flex items-center justify-center flex-shrink-0`}>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-6 w-6" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" 
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
             <span className={`ml-4 font-medium ${textColor} whitespace-nowrap opacity-0 nav-text`}>
@@ -116,19 +109,8 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
             }
           >
             <div className={`w-10 h-10 rounded-md ${textColor} flex items-center justify-center flex-shrink-0`}>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-6 w-6" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
             <span className={`ml-4 font-medium ${textColor} whitespace-nowrap opacity-0 nav-text`}>
@@ -138,26 +120,15 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
         </div>
       </div>
       
-      {/* Bottom section - Back button */}
+      {/* Back button */}
       <div className="pb-8 px-4 mt-auto">
         <button 
           onClick={handleBack}
           className="flex items-center opacity-70 hover:opacity-100 transition-opacity"
         >
           <div className={`w-10 h-10 rounded-md ${textColor} flex items-center justify-center flex-shrink-0`}>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M10 19l-7-7m0 0l7-7m-7 7h18" 
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
           </div>
           <span className={`ml-4 font-medium ${textColor} whitespace-nowrap opacity-0 nav-text`}>

@@ -5,6 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Use class strategy for dark mode
   theme: {
     extend: {
       colors: {
@@ -13,7 +14,6 @@ export default {
           blue: '#1A374D',   // Navy blue
           light: '#F5F5F5',  // Light background
           dark: '#1E1E1E',   // Dark background
-          gray: '#718096',   // Neutral gray
         },
       },
       animation: {

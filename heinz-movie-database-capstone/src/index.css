@@ -2,7 +2,195 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add any global styles below */
+/* Theme color variables */
+/* Critical theme variables with !important */
+:root {
+  --app-bg: #ffffff;
+  --app-text: #1a202c;
+}
+
+.dark {
+  --app-bg: #1a202c;
+  --app-text: #ffffff;
+}
+
+/* Force background and text colors */
 body {
-  @apply bg-tazama-light dark:bg-tazama-dark;
+  background-color: var(--app-bg) !important;
+  color: var(--app-text) !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+#root {
+  min-height: 100vh;
+  background-color: var(--app-bg) !important;
+}
+
+/* Force theme transitions */
+body,
+html,
+#root,
+div {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Smooth transitions for theme switching */
+@layer base {
+  * {
+    @apply transition-colors duration-150;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+  }
+}
+
+/* Logo Animation Styles */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-letter {
+  display: inline-block;
+  animation: letter-animation 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+.animation-complete .logo-letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes letter-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Netflix-inspired underline animation */
+.logo-container::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  background-color: #E7B10A;
+  /* Mustard yellow */
+  transform: translateX(-50%);
+  transition: width 0.5s ease;
+  animation: underline-animation 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes underline-animation {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 160px;
+  }
+}
+
+/* Loading Bar Animation */
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loadingBar {
+  animation: loadingBar 1.5s infinite linear;
+}
+
+/* Side Navigation Animation */
+.side-nav {
+  width: 60px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.side-nav:hover {
+  width: 180px;
+}
+
+.nav-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+nav:hover .nav-text {
+  opacity: 1 !important;
+}
+
+/* Movie Card Animations */
+.movie-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Floating animation for UI elements */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }

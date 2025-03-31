@@ -1,16 +1,14 @@
 // src/components/movie/MovieGrid.jsx
 import React from 'react';
-// We'll remove PropTypes for now to avoid the error
-// import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 const MovieGrid = ({ 
   movies, 
   loading = false, 
   error = null, 
-  emptyMessage = 'No movies found'
+  emptyMessage = 'No movies found',
 }) => {
-  // Use explicit Tailwind classes instead of dynamic ones
+  // Use explicit Tailwind classes for grid
   const gridClasses = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6";
   
   // Loading state
@@ -25,7 +23,7 @@ const MovieGrid = ({
   // Error state
   if (error) {
     return (
-      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded mb-4">
         <p>{error}</p>
       </div>
     );
@@ -34,8 +32,8 @@ const MovieGrid = ({
   // Empty state
   if (!movies || movies.length === 0) {
     return (
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
-        <p className="text-gray-600">{emptyMessage}</p>
+      <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center">
+        <p className="text-gray-600 dark:text-gray-300">{emptyMessage}</p>
       </div>
     );
   }
@@ -49,8 +47,5 @@ const MovieGrid = ({
     </div>
   );
 };
-
-// We'll also remove PropTypes validation for now
-// MovieGrid.propTypes = {...}
 
 export default MovieGrid;
