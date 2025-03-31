@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getMovieDetails } from '../services/api';
 import BackButton from '../components/common/BackButton';
+import FavoriteButton from '../components/favorites/FavoriteButton';
 import { useLoading } from '../contexts/LoadingContext';
+import { useFavorites } from '../contexts/FavoritesContext';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -74,10 +76,10 @@ const MovieDetailsPage = () => {
   
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      {/* Back Button */}
       <div className="max-w-6xl mx-auto px-4 pt-4">
-          <BackButton />
+        <BackButton />
       </div>
+      
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-tazama-blue to-black text-white py-12">
         <div className="absolute inset-0 opacity-20" style={{ 
@@ -127,16 +129,25 @@ const MovieDetailsPage = () => {
               </div>
             )}
             
-            {imdbRating && (
-              <div className="flex items-center mb-4">
+            <div className="flex items-center mb-4">
+              {imdbRating && (
                 <div className="bg-tazama-yellow text-tazama-blue font-bold rounded px-3 py-2 mr-2">
                   {imdbRating}/10
                 </div>
-                <span className="text-sm text-gray-300">
-                  {imdbVotes && `${imdbVotes} votes`}
-                </span>
+              )}
+              
+              <span className="text-sm text-gray-300">
+                {imdbVotes && `${imdbVotes} votes`}
+              </span>
+              
+              {/* Add favorite button */}
+              <div className="ml-4">
+                <FavoriteButton 
+                  movie={movie} 
+                  className="bg-white bg-opacity-20 hover:bg-opacity-30"
+                />
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
