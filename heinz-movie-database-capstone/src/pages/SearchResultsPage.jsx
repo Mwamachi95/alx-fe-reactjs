@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { searchMovies } from '../services/api';
 import MovieGrid from '../components/movie/MovieGrid';
+import { useLoading } from '../contexts/LoadingContext';
 
 const SearchResultsPage = () => {
   const location = useLocation();
@@ -10,29 +11,29 @@ const SearchResultsPage = () => {
   const query = queryParams.get('q') || '';
   
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { startLoading, stopLoading } = useLoading();
   
   useEffect(() => {
     if (!query) return;
     
     const fetchMovies = async () => {
-      setLoading(true);
       setError(null);
       
       try {
+        startLoading();
         const data = await searchMovies(query);
         setMovies(data.movies || []);
       } catch (err) {
         setError(err.message);
         setMovies([]);
       } finally {
-        setLoading(false);
+        stopLoading();
       }
     };
     
     fetchMovies();
-  }, [query]);
+  }, [query, startLoading, stopLoading]);
   
   return (
     <div>
@@ -40,7 +41,7 @@ const SearchResultsPage = () => {
       
       <MovieGrid 
         movies={movies} 
-        loading={loading} 
+        loading={false} // We're using the global loading state now
         error={error} 
         emptyMessage={`No movies found for "${query}". Try a different search term.`}
       />

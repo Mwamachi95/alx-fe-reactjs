@@ -3,37 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getMovieDetails } from '../services/api';
 import BackButton from '../components/common/BackButton';
+import { useLoading } from '../contexts/LoadingContext';
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { startLoading, stopLoading } = useLoading();
   
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        setLoading(true);
+        startLoading();
         const data = await getMovieDetails(id);
         setMovie(data);
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        stopLoading();
       }
     };
     
     fetchMovieDetails();
-  }, [id]);
-  
-  // Loading state
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-tazama-yellow"></div>
-      </div>
-    );
-  }
+  }, [id, startLoading, stopLoading]);
   
   // Error state
   if (error) {
@@ -51,11 +43,8 @@ const MovieDetailsPage = () => {
   // No movie data
   if (!movie) {
     return (
-      <div className="bg-gray-100 p-8 rounded-lg text-center">
-        <p className="text-xl text-gray-600">Movie not found</p>
-        <Link to="/home" className="mt-4 inline-block text-tazama-blue hover:underline">
-          Return to Home Page
-        </Link>
+      <div className="min-h-[70vh] flex items-center justify-center">
+        <p className="text-gray-500">Loading movie details...</p>
       </div>
     );
   }

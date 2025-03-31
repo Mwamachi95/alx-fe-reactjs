@@ -1,12 +1,19 @@
 // src/components/layout/Layout.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SideNavigation from './SideNavigation';
 import TopNavigation from './TopNavigation';
+import { useLoading } from '../../contexts/LoadingContext';
 
 const Layout = ({ children, sideNavColor = 'yellow', onSearch }) => {
   const location = useLocation();
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
+  const { setLoadingBarColor } = useLoading();
+  
+  // Set loading bar color based on the sideNavColor prop
+  useEffect(() => {
+    setLoadingBarColor(sideNavColor);
+  }, [sideNavColor, setLoadingBarColor]);
   
   // Don't show navigation on landing page
   const isLandingPage = location.pathname === '/';
