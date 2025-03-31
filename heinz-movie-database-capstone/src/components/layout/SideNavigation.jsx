@@ -55,7 +55,7 @@ const SideNavigation = ({ backgroundColor = 'yellow', onStateChange }) => {
       className={`fixed left-0 top-0 h-screen w-16 hover:w-56 ${bgColor} transition-width duration-300 ease-in-out overflow-hidden z-40 flex flex-col`}
     >
       {/* Top section - Profile */}
-      <div className="pt-8 px-4">
+      <div className="pt-4 px-4">
         <div className="flex items-center">
           <div className={`w-10 h-10 rounded-full border-2 ${textColor} border-current flex items-center justify-center flex-shrink-0`}>
             <svg 
