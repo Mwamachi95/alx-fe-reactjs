@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import FavoritesPage from './pages/FavoritesPage';
 import SearchResultsPage from './pages/SearchResultsPage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
 import TestAPIPage from './pages/TestAPIPage';
 import './styles/animations.css';
 
@@ -29,6 +30,12 @@ function App() {
         <Route path="/search" element={
           <Layout sideNavColor="yellow">
             <SearchResultsPage />
+          </Layout>
+        } />
+        
+        <Route path="/movie/:id" element={
+          <Layout sideNavColor="blue">
+            <MovieDetailsPage />
           </Layout>
         } />
         
