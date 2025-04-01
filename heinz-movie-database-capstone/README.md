@@ -156,71 +156,45 @@ This implementation balances visual appeal with functional requirements, creatin
 tazama-movie-database/
 ├── public/
 │ ├── favicon.ico
-│ └── index.html
+│ ├── index.html
+│ └── placeholder.png (for movie posters)
 ├── src/
-│ ├── assets/
-│ │ ├── images/
-│ │ │ └── placeholder.png
-│ │ └── icons/
-│ │ ├── favorite.svg
-│ │ ├── home.svg
-│ │ ├── search.svg
-│ │ ├── back.svg
-│ │ ├── user.svg
-│ │ └── social/
-│ │ ├── github.svg
-│ │ ├── linkedin.svg
-│ │ └── x-twitter.svg
 │ ├── components/
 │ │ ├── animations/
-│ │ │ ├── LogoAnimation.jsx
-│ │ │ ├── BackgroundAnimation.jsx
-│ │ │ └── CardTransition.jsx
+│ │ │ └── LogoAnimation.jsx
 │ │ ├── common/
-│ │ │ ├── ErrorMessage.jsx
-│ │ │ ├── Loading.jsx
+│ │ │ ├── BackButton.jsx
 │ │ │ ├── Pagination.jsx
-│ │ │ └── SocialLinks.jsx
+│ │ │ └── ThemeToggle.jsx
+│ │ ├── favorites/
+│ │ │ └── FavoriteButton.jsx
 │ │ ├── layout/
-│ │ │ ├── Footer.jsx
-│ │ │ ├── Header.jsx
+│ │ │ ├── Layout.jsx
 │ │ │ ├── SideNavigation.jsx
-│ │ │ ├── TopNavigation.jsx
-│ │ │ └── Layout.jsx
-│ │ ├── movie/
-│ │ │ ├── MovieCard.jsx
-│ │ │ ├── MovieDetails.jsx
-│ │ │ ├── MovieList.jsx
-│ │ │ ├── MovieCarousel.jsx
-│ │ │ ├── AcclaimedMovies.jsx
-│ │ │ └── SearchBar.jsx
-│ │ └── favorites/
-│ │ ├── FavoriteButton.jsx
-│ │ └── FavoritesList.jsx
-│ ├── hooks/
-│ │ ├── useDebounce.js
-│ │ ├── useFetchMovies.js
-│ │ ├── useLocalStorage.js
-│ │ └── useAnimationState.js
-│ ├── pages/
-│ │ ├── LandingPage.jsx
-│ │ ├── HomePage.jsx
-│ │ ├── MovieDetailsPage.jsx
-│ │ └── FavoritesPage.jsx
-│ ├── services/
-│ │ ├── api.js
-│ │ └── localStorage.js
-│ ├── styles/
-│ │ ├── animations.css
-│ │ ├── theme.js
-│ │ └── tailwind.css
-│ ├── utils/
-│ │ ├── constants.js
-│ │ ├── helpers.js
-│ │ └── animationHelpers.js
+│ │ │ └── TopNavigation.jsx
+│ │ └── movie/
+│ │ ├── MovieCard.jsx
+│ │ ├── MovieGrid.jsx
+│ │ └── SearchFilters.jsx
 │ ├── contexts/
 │ │ ├── FavoritesContext.jsx
+│ │ ├── LoadingContext.jsx
 │ │ └── ThemeContext.jsx
+│ ├── pages/
+│ │ ├── FavoritesPage.jsx
+│ │ ├── HomePage.jsx
+│ │ ├── LandingPage.jsx
+│ │ ├── MovieDetailsPage.jsx
+│ │ ├── SearchResultsPage.jsx
+│ │ └── TestAPIPage.jsx
+│ ├── services/
+│ │ └── api.js
+│ ├── styles/
+│ │ └── animations.css
+│ ├── utils/
+│ │ ├── constants.js
+│ │ └── sortingUtils.js
+│ ├── App.css
 │ ├── App.jsx
 │ ├── index.css
 │ └── main.jsx
