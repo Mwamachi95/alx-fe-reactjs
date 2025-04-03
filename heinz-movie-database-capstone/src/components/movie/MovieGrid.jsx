@@ -1,4 +1,3 @@
-// src/components/movie/MovieGrid.jsx
 import React from 'react';
 import MovieCard from './MovieCard';
 

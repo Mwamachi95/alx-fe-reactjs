@@ -1,4 +1,3 @@
-// src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import { getPopularMovies } from '../services/api';
 import MovieGrid from '../components/movie/MovieGrid';

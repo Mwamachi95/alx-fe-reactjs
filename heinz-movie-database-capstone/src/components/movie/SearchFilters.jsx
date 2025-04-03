@@ -1,4 +1,3 @@
-// src/components/movie/SearchFilters.jsx
 import React, { useState } from 'react';
 
 const SearchFilters = ({ onFilterChange, onSortChange, onClearFilters }) => {

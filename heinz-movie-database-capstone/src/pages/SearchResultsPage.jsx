@@ -1,4 +1,3 @@
-// src/pages/SearchResultsPage.jsx - Update
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { searchMovies } from '../services/api';

@@ -1,4 +1,3 @@
-// src/components/layout/SideNavigation.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useTheme, THEMES } from '../../contexts/ThemeContext';

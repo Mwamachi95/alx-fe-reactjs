@@ -1,4 +1,3 @@
-// src/pages/FavoritesPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MovieGrid from '../components/movie/MovieGrid';

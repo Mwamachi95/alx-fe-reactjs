@@ -1,4 +1,3 @@
-// src/pages/TestAPIPage.jsx
 import React, { useEffect, useState } from 'react';
 import { searchMovies, getMovieDetails } from '../services/api';
 

@@ -1,4 +1,3 @@
-// src/components/favorites/FavoriteButton.jsx
 import React from 'react';
 import { useFavorites } from '../../contexts/FavoritesContext';
 

@@ -1,4 +1,3 @@
-// src/components/layout/TopNavigation.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../common/ThemeToggle';
